@@ -402,9 +402,12 @@ footer .copyright-text {
 }
 
 /************************************************
-************************************************/
 
-/* End of Desigin for Small Desktops */
+/************************************************
+/* INÍCIO: Media Queries Completas e Refatoradas */
+/************************************************/
+
+/* Estilos para Desktops Menores (max-width: 1440px) */
 @media screen and (max-width: 1440px) {
   .container {
     width: 1180px;
@@ -419,27 +422,160 @@ footer .copyright-text {
   }
 }
 
-/* End of Desigin for Small Desktops */
-
-/* Start of design for tablets */
+/* Estilos para Tablets (max-width: 960px) */
 @media screen and (max-width: 960px) {
   .container {
     max-width: 92%;
+    padding: 0 16px;
   }
-}
-
-/* End of Desigin for tablets */
-
-/* Start of design for mobile Phones */
-@media screen and (max-width: 576px) {
   header .logo {
-    font-size: 18px;
+    font-size: 20px;
+    padding-right: 80%;
   }
 
-  header .logo .blue-dot {
-    width: 7px;
-    height: 7px;
+  /* Ajusta os produtos para ficarem 2 por linha */
+  section.best-sellers .container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  section.best-sellers .product-slider .product {
+    width: 47%; /* Ocupa metade da tela */
+    margin: 10px 0;
+  }
+
+  /* Ajusta o rodapé para ter duas colunas em tablets */
+  footer .bottom-nav .container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 20px;
+  }
+
+  footer .bottom-nav ul {
+    width: 45%;
+    margin-bottom: 20px;
   }
 }
 
-/* End of Desigin for mobile Phones */
+/* Estilos para Celulares (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  /* Oculta a navegação principal */
+  header nav {
+    display: none;
+  }
+
+  header .container {
+    justify-content: center; /* Centraliza o logo */
+  }
+
+  /* **CORREÇÃO PRINCIPAL DO HERO** */
+  section.hero {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden; /* **IMPEDE A BARRA DE ROLAGEM LATERAL** */
+    position: relative; /* Garante que ele contenha os elementos */
+    background-color: #3e3e3e; /* Cor de fundo para o texto ficar legível */
+  }
+
+  /* Faz a imagem do relógio se comportar como uma imagem normal e não como um overlay */
+  section.hero img {
+    /* Esta imagem é o fundo ou o objeto separado */
+    width: 50%; /* Reduz a largura da imagem */
+    float: right; /* Joga a imagem para o lado direito */
+    height: auto;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+
+  .hero-content {
+    position: relative; /* **CHAVE: Remove o absoluto que causava a sobreposição** */
+    width: 50%; /* O texto ocupa a outra metade do hero */
+    height: auto;
+    padding: 40px 0 40px 16px; /* Adiciona padding e recuo */
+    box-sizing: border-box;
+    text-align: left; /* Alinha o texto à esquerda, ao lado da imagem */
+  }
+
+  .hero-content .container {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    color: #fff; /* Texto branco sobre fundo escuro */
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    line-height: 20px;
+    margin-bottom: 15px;
+    max-width: 100%;
+    color: #fff;
+  }
+
+  .hero-content button {
+    width: 180px;
+    height: 40px;
+    margin-top: 10px;
+  }
+
+  /* Ajustes para a newsletter */
+  section.newsletter {
+    padding: 40px 0;
+    margin: 40px 16px;
+    max-width: unset; /* Permite que ocupe a largura total */
+  }
+
+  section.newsletter form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section.newsletter form input,
+  section.newsletter form button {
+    width: 90%;
+    max-width: 300px;
+    border-radius: 60px;
+    margin-bottom: 10px;
+    border-right: 1px solid #3e3e3e;
+  }
+}
+
+/* Estilos para Celulares Pequenos (max-width: 576px) */
+@media screen and (max-width: 576px) {
+  /* No menor celular, a imagem e o texto ficam empilhados */
+  section.hero img {
+    width: 100%; /* Imagem no topo da tela */
+    float: none; /* Remove o float */
+    margin: 0;
+    order: 1;
+  }
+
+  .hero-content {
+    width: 100%; /* Conteúdo ocupa a largura total abaixo da imagem */
+    text-align: center;
+    padding: 20px 16px;
+    order: 2;
+  }
+
+  section.best-sellers .product-slider .product {
+    width: 95%; /* Quase a largura total da tela para produtos */
+    padding: 20px;
+  }
+
+  /* Ajustes do rodapé para uma coluna */
+  footer .bottom-nav .container {
+    flex-direction: column;
+    padding: 0 16px;
+    align-items: flex-start;
+  }
+
+  footer .bottom-nav ul {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
