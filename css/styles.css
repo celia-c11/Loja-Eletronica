@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 body {
   margin: 0;
   font-family: "Heebo", sans-serif;
@@ -37,6 +42,7 @@ header .container {
 header .logo {
   display: inline-block;
   font-size: 27px;
+  padding-right: 30px;
 }
 
 header .logo .blue-dot {
@@ -120,7 +126,7 @@ section.hero img {
 }
 
 .hero-content button {
-  height: 50px;
+  height: 40px;
   width: 220px;
   max-width: 100%;
   border-radius: 92px;
@@ -133,6 +139,18 @@ section.hero img {
   border: none;
   text-transform: uppercase;
   cursor: pointer;
+}
+.hero-content button a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+}
+
+.hero-content button:hover a {
+  color: #3e50e5;
 }
 
 .hero-content button:hover {
@@ -265,7 +283,7 @@ section.best-sellers .product-slider .product .product-info button {
   width: 219.5px;
   border: none;
   color: rgb(30, 27, 27);
-  background-color: rgba(111, 98, 98, 0.541);
+  background-color: rgba(111, 98, 98, 0.343);
   border-radius: 220px;
   text-transform: uppercase;
   font-size: 16px;
@@ -425,11 +443,9 @@ footer .copyright-text {
     padding: 0 16px;
   }
   header .logo {
+    color: #24309e;
     font-size: 15px;
     padding-right: 70%;
-  }
-  header nav ul li a {
-    width: 200%;
   }
 
   /* Ajusta os produtos para ficarem 2 por linha */
@@ -496,7 +512,7 @@ footer .copyright-text {
   }
   .hero-content p {
     font-size: 0.9rem;
-    line-height: 16px;
+    line-height: 20px;
     margin-bottom: 15px;
     max-width: 100%;
     color: #ffffffa6;
@@ -616,11 +632,11 @@ header nav {
 
 header nav ul li a {
   color: #1c1c1c;
-  font-size: 15px; /* diminui o tamanho do texto */
+  font-size: 14px; /* diminui o tamanho do texto */
   margin-right: 20px;
-
-  text-decoration: none;
-  padding: 0; /* remove padding extra */
+  color: #00000098;
+  padding: 10px; /* remove padding extra */
+  padding-right: 18px;
 }
 
 header nav ul li a:hover {
